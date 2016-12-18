@@ -21,7 +21,7 @@ public class TestServiceImpl implements TestService {
 
 
     @Override
-    public void reset () {
+    public boolean reset () {
 
         log.info("Resetting dataBase");
 
@@ -32,8 +32,10 @@ public class TestServiceImpl implements TestService {
                     " id int(10) unsigned not null AUTO_INCREMENT, " +
                     " name VARCHAR(255)," +
                     " primary key (id))");
+            return true;
         } catch (DataAccessException exc) {
             log.error(exc.getMessage());
+            return false;
         }
     }
 
@@ -61,12 +63,14 @@ public class TestServiceImpl implements TestService {
     }
 
     @Override
-    public void save (String name) {
+    public boolean save (String name) {
         log.info("Inserting ", name);
         try {
             jdbcTemplate.update("INSERT INTO TESTDB (name) VALUES (?)", name);
+            return true;
         } catch (DataAccessException exc) {
             log.error(exc.getMessage());
+            return false;
         }
 
     }

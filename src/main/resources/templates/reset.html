@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8" />
     <title>reset status</title>
 </head>
 <body>
-DataBase reset complete! <br />
+<span th:if="${error != null}" th:text="${error}">Error</span>
+<span th:if="${error == null}">DataBase reset complete!</span>
+ <br />
 <a href="/">main page</a>
 </body>
 </html>

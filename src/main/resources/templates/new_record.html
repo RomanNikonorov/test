@@ -5,6 +5,7 @@
     <title>Adding record</title>
 </head>
 <body>
+<span th:if="${error != null}" th:text="${error}">Error</span>
 <form action="/new" method="post">
     <input type="text" name="name"/> <br />
     <button type="submit">Submit</button>

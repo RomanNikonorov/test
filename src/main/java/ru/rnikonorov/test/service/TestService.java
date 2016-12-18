@@ -7,8 +7,8 @@ import ru.rnikonorov.test.TestDB;
 import java.util.List;
 
 public interface TestService {
-    void reset();
+    boolean reset();
     List<TestDB> findAll() throws DataAccessException;
     List<TestDB> findByName(String name) throws DataAccessException;
-    void save (String name) throws DataAccessException;
+    boolean save (String name) throws DataAccessException;
 }
