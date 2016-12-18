@@ -5,6 +5,8 @@
     <title>jdbc test</title>
 </head>
 <body>
+<span th:if="${error != null}" th:text="${error}">Error</span>
+
 <form action="/" method="post">
     <input type="text" name="name"/>
     <button type="submit">Apply search</button>

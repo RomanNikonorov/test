@@ -18,14 +18,26 @@ public class IndexController {
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String index(Model model) {
         List<TestDB> testDBS = testService.findAll();
-        model.addAttribute("test_table", testDBS);
+        if (testDBS == null) {
+            model.addAttribute("error", "There's an error reading database. See log for details.");
+        } else {
+            model.addAttribute("error", null);
+            model.addAttribute("test_table", testDBS);
+        }
+
+
         return "index";
     }
 
     @RequestMapping(value = "/", method = RequestMethod.POST)
     public String indexFilter(String name, Model model) {
         List<TestDB> testDBS = testService.findByName(name);
-        model.addAttribute("test_table", testDBS);
+        if (testDBS == null) {
+            model.addAttribute("error", "There's an error reading database. See log for details.");
+        } else {
+            model.addAttribute("error", null);
+            model.addAttribute("test_table", testDBS);
+        }
         return "index";
     }
 }
