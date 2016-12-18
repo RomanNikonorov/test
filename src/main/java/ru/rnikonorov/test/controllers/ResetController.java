@@ -6,8 +6,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import ru.rnikonorov.test.service.TestService;
 
-import javax.management.MalformedObjectNameException;
-
 @Controller
 public class ResetController {
 

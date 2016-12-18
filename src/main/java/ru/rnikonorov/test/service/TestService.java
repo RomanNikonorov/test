@@ -1,6 +1,5 @@
 package ru.rnikonorov.test.service;
 
-import javassist.NotFoundException;
 import org.springframework.dao.DataAccessException;
 import ru.rnikonorov.test.TestDB;
 
