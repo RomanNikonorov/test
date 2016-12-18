@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>jdbc test</title>
+</head>
+<body>
+<form action="/" method="post">
+    <input type="text" name="name"/>
+    <button type="submit">Apply search</button>
+</form>
+<table>
+    <thead>
+        <th>ID</th>
+        <th>NAME</th>
+    </thead>
+    <tbody>
+    <tr th:each="row: ${test_table}">
+        <td th:text="${row.id}"></td>
+        <td th:text="${row.name}"></td>
+    </tr>
+    </tbody>
+</table>
+<a href="/reset">reset DB</a>
+<a href="/new">add record</a>
+</body>
+</html>
