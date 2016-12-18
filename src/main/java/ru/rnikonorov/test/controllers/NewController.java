@@ -23,8 +23,14 @@ public class NewController {
     }
 
     @RequestMapping(value = "/new", method = RequestMethod.POST)
-    public String saveRecord(String name) {
-        testService.save(name);
-        return "redirect:/";
+    public String saveRecord(String name, Model model) {
+        boolean result = testService.save(name);
+        if (result != true) {
+            model.addAttribute("error", "There's an error reading database. See log for details.");
+            return "/new";
+        } else {
+            model.addAttribute("error", null);
+            return "redirect:/";
+        }
     }
 }
